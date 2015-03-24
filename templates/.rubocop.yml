@@ -1,0 +1,27 @@
+AllCops:
+  RunRailsCops: true
+
+  Include:
+    - '**/Gemfile'
+    - '**/Rakefile'
+
+  Exclude:
+    - 'bin/*'
+    - 'db/migrate/*'
+    - 'db/seeds.rb'
+    - 'db/schema.rb'
+    - 'vendor/bundle/**/*'
+
+Metrics/ClassLength:
+  CountComments: false # count full line comments?
+  Max: 150
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  CountComments: false # count full line comments?
+  Max: 20
+
+Style/AsciiComments:
+  Enabled: false
