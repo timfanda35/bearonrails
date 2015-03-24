@@ -4,8 +4,6 @@ Gem::Specification.new do |gem|
   gem.name          = 'bearonrails'
   gem.version       = Bearonrails::VERSION
 
-  gem.required_ruby_version = '>= 1.9.3'
-
   gem.license       = 'MIT'
   gem.authors       = ['timfanda35']
   gem.email         = ['timfanda35@gmail.com']

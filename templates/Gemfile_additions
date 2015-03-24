@@ -1,5 +1,5 @@
 
-gem 'pry'
+gem 'pry-rails'
 gem 'pry-byebug'
 gem 'awesome_print', :require => false
 
