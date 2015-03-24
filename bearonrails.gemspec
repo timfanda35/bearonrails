@@ -1,21 +1,23 @@
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'bearonrails/version'
+require File.expand_path('../lib/bearonrails/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name          = 'bootstrappers'
+  gem.name          = 'bearonrails'
   gem.version       = Bearonrails::VERSION
+
+  gem.required_ruby_version = '>= 1.9.3'
+
+  gem.license       = 'MIT'
   gem.authors       = ['timfanda35']
   gem.email         = ['timfanda35@gmail.com']
-  gem.description   = 'Bearonrails is the base Rails application generator.'
-  gem.summary       = 'Bearonrails is the base Rails application generator.'
-  gem.homepage      = ''
+  gem.summary       = 'A Base Rails application generator.'
+  gem.description   = gem.summary
+  gem.homepage      = 'https://github.com/timfanda35/bearonrails'
 
-  gem.files         = `git ls-files`.split($RS)
-  gem.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
+  gem.files         = `git ls-files`.split("\n").sort
+  gem.executables   = ['bearonrails']
   gem.test_files    = gem.files.grep(/^(test|spec|features)\\/)
-  gem.require_paths = %w('lib')
+  gem.require_paths = ['lib']
 
-  gem.add_dependency 'rails', '>= 4.2.0'
-  gem.add_dependency 'bundler', '>= 1.7'
+  gem.required_ruby_version = '>= 2.0'
+  gem.add_dependency 'rails', '~>4.2', '>= 4.2.0'
 end

@@ -16,6 +16,7 @@ module Bearonrails
       invoke :customize_gemfile
       invoke :install_rspec
       invoke :add_rubocop_config
+      invoke :add_pry_config
       invoke :remove_routes_comment_lines
       invoke :init_git
     end
@@ -41,10 +42,16 @@ module Bearonrails
       build :add_rubocop_config
     end
 
+    def add_pry_config
+      say 'Add pry config'
+      build :add_pryrc
+      build :add_pry_config
+    end
+
     def install_rspec
       say 'Install rspec'
       build :install_rspec
-      build :remove_rspec_warning
+      build :add_rspec_helper_addon
     end
 
     def remove_routes_comment_lines

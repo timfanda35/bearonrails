@@ -1,4 +1,9 @@
 #!/usr/bin/env ruby
+
+# (C) Bear Su (timfanda35)
+# MIT license
+$0 = 'bearonrails'
+
 require File.expand_path(File.join('..', 'lib', 'bearonrails', 'generators', 'app_generator'), File.dirname(__FILE__))
 require File.expand_path(File.join('..', 'lib', 'bearonrails', 'app_builder'), File.dirname(__FILE__))
 

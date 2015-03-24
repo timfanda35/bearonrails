@@ -28,11 +28,13 @@ module Bearonrails
       run 'bundle exec rails g rspec:install'
     end
 
-    def remove_rspec_warning
-      replace_in_file(
-        '.rspec',
-        /--warnings/m,
-        '#--warnings'
+    def add_rspec_helper_addon
+      additions_path = find_in_source_paths 'spec/rails_helper_addon'
+      addon_config = File.open(additions_path).read
+      inject_into_file(
+        'spec/rails_helper.rb',
+        "\n#{addon_config}",
+        before: /^end/
       )
     end
 
@@ -42,6 +44,14 @@ module Bearonrails
         /Rails\.application\.routes\.draw do.*end/m,
         "Rails.application.routes.draw do\nend"
       )
+    end
+
+    def add_pryrc
+      copy_file '.pryrc', '.pryrc'
+    end
+
+    def add_pry_config
+      copy_file 'config/initializers/pry.rb', 'config/initializers/pry.rb'
     end
 
     private
