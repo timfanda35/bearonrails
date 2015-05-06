@@ -24,6 +24,26 @@ module Bearonrails
       copy_file '.rubocop.yml', '.rubocop.yml'
     end
 
+    def add_new_relic_config
+      copy_file 'config/newrelic.yml', 'config/newrelic.yml'
+
+      replace_in_file(
+        '.env',
+        /change-this-to-your-app-name/m,
+        "#{app_name}"
+      )
+    end
+
+    def add_dot_env
+      copy_file '.env', '.env'
+
+      inject_into_file(
+        'config/application.rb',
+        "Dotenv.load\n\n",
+        before: /^module/
+      )
+    end
+
     def install_rspec
       run 'bundle exec rails g rspec:install'
     end
@@ -44,14 +64,6 @@ module Bearonrails
         /Rails\.application\.routes\.draw do.*end/m,
         "Rails.application.routes.draw do\nend"
       )
-    end
-
-    def add_pryrc
-      copy_file '.pryrc', '.pryrc'
-    end
-
-    def add_pry_config
-      copy_file 'config/initializers/pry.rb', 'config/initializers/pry.rb'
     end
 
     private

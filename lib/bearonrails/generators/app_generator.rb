@@ -16,7 +16,7 @@ module Bearonrails
       invoke :customize_gemfile
       invoke :install_rspec
       invoke :add_rubocop_config
-      invoke :add_pry_config
+      invoke :add_new_relic_config
       invoke :remove_routes_comment_lines
       invoke :init_git
     end
@@ -35,6 +35,11 @@ module Bearonrails
     def customize_gemfile
       build :add_custom_gems
       bundle_command 'install'
+
+      # skip origin `bundle install` step
+      new_options = options.dup
+      options = new_options
+      options.merge!(skip_bundle: true)
     end
 
     def add_rubocop_config
@@ -42,10 +47,10 @@ module Bearonrails
       build :add_rubocop_config
     end
 
-    def add_pry_config
-      say 'Add pry config'
-      build :add_pryrc
-      build :add_pry_config
+    def add_new_relic_config
+      say 'Add New Relic config'
+      build :add_dot_env
+      build :add_new_relic_config
     end
 
     def install_rspec
