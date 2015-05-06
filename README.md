@@ -46,7 +46,7 @@ Dotenv.load
 
 #### Rails console
 
-* [awesome_rails_console](https://github.com/michaeldv/awesome_print)
+* [awesome_rails_console](https://github.com/ascendbruce/awesome_rails_console)
   * [pry-rails](https://github.com/rweng/pry-rails)
   * [pry-byebug](https://github.com/deivid-rodriguez/pry-byebug)
   * [awesome_print](https://github.com/michaeldv/awesome_print)
@@ -89,3 +89,6 @@ Dotenv.load
 
 ## MIT License
 
+[gem_version_badge]: https://img.shields.io/gem/v/bearonrails.svg?style=flat
+[gem_downloads_badge]: http://img.shields.io/gem/dt/bearonrails.svg?style=flat
+[ruby_gems]: http://rubygems.org/gems/bearonrails
